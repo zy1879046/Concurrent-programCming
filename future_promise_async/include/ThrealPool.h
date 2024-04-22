@@ -67,7 +67,7 @@ private:
                         task = std::move(this->tasks_.front());
                         this->tasks_.pop();
                     }
-                    this->thread_num_--;
+                    this->thread_num_--;//主要用来对函数idleThreadCount起作用
                     task();
                     this->thread_num_++;
                 }
