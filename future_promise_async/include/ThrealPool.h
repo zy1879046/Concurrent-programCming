@@ -55,7 +55,7 @@ private:
 
     void start()
     {
-        for(int i = 0; i < thread_num_; ++i)
+        for(int i = 0; i < thread_num_; ++i)//将线程全部启动 
         {
             pool_.emplace_back([this](){
                 while(!this->stop_.load()){
