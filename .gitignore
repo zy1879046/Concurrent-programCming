@@ -1,2 +1,4 @@
 bin
 .vscode
+grammer_test.cpp
+grammer_bin
