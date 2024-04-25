@@ -63,7 +63,7 @@ namespace messaging
 		//⑧根据TemplateDispatcher处理某种具体类型的消息
 		template<typename Message, typename Func, typename dispatcher>
 		TemplateDispatcher<dispatcher, Message, Func>
-			handle(Func&& f,  std::string info_msg)
+		handle(Func&& f,  std::string info_msg)
 		{
 			//std::cout << "Dispatcher  handle msg is " << info_msg << std::endl;
 			return TemplateDispatcher<dispatcher, Message, Func>(
@@ -110,12 +110,12 @@ namespace messaging
 		queue q;     
 	public:
 		//②receiver对象准许隐式转换为sender对象，前者拥有的队列被后者引用
-		  operator sender()
+		operator sender()
 		{
 			return sender(&q);
 		}
 		//③队列上的等待行为会创建一个dispatcher对象
-			dispatcher wait()    
+		dispatcher wait()    
 		{
 			return dispatcher(&q);
 		}
@@ -137,7 +137,7 @@ namespace messaging
 		template<typename Dispatcher, typename OtherMsg, typename OtherFunc>
 		//①根据类模板TemplateDispatcher<>具现化而成的各种类型互为友类
 		friend class TemplateDispatcher;    
-			void wait_and_dispatch()
+		void wait_and_dispatch()
 		{
 			for (;;)
 			{

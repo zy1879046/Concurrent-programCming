@@ -13,7 +13,7 @@ public:
 	{}
 	void done()
 	{
-		get_sender().send(messaging::close_queue());
+		get_sender().send(messaging::close_queue());//结束时发送close_queue消息
 	}
 	void run()
 	{
@@ -71,6 +71,6 @@ public:
 
 	messaging::sender get_sender()
 	{
-		return incoming;
+		return incoming;//隐式转换为sender()
 	}
 };
