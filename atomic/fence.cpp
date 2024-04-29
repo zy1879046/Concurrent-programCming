@@ -6,6 +6,9 @@
 std::atomic<bool> x, y;
 std::atomic<int> z;
 
+//此处需要记住，对于acquire只有当前原子变量逻辑上同步时，即下面的while时，能知道其release之前的一些操作对于该原子变量acquire后的可见
+//而另外一个线程并没有构建逻辑上的同步，所以并不可见
+
 void write_x()
 {
     x.store(true, std::memory_order_release); //1
