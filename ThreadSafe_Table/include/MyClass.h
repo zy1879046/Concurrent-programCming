@@ -15,6 +15,10 @@ public:
     friend std::ostream& operator<<(std::ostream& os ,MyClass const& mc){
         return os<<mc._data;
     }
+    int GetData() const
+	{
+		return _data;
+	}
 private:
     int _data;
 };
